@@ -11,6 +11,7 @@
 @class HMSegmentedControl;
 
 typedef void (^IndexChangeBlock)(NSInteger index);
+typedef void (^SegmentPressedBlock)(NSInteger index);
 typedef NSAttributedString *(^HMTitleFormatterBlock)(HMSegmentedControl *segmentedControl, NSString *title, NSUInteger index, BOOL selected);
 
 typedef NS_ENUM(NSInteger, HMSegmentedControlSelectionStyle) {
@@ -69,6 +70,8 @@ typedef NS_ENUM(NSInteger, HMSegmentedControlImagePosition) {
  Alternativly, you could use `addTarget:action:forControlEvents:`
  */
 @property (nonatomic, copy) IndexChangeBlock indexChangeBlock;
+
+@property (nonatomic, copy) SegmentPressedBlock segmentPressedBlock;
 
 /**
  Used to apply custom text styling to titles when set.
@@ -257,6 +260,7 @@ typedef NS_ENUM(NSInteger, HMSegmentedControlImagePosition) {
 - (instancetype)initWithSectionImages:(NSArray<UIImage *> *)sectionImages sectionSelectedImages:(NSArray<UIImage *> *)sectionSelectedImages titlesForSections:(NSArray<NSString *> *)sectiontitles;
 - (void)setSelectedSegmentIndex:(NSUInteger)index animated:(BOOL)animated;
 - (void)setIndexChangeBlock:(IndexChangeBlock)indexChangeBlock;
+- (void)setSegmentPressedBlock:(SegmentPressedBlock)segmentPressedBlock;
 - (void)setTitleFormatter:(HMTitleFormatterBlock)titleFormatter;
 
 @end
