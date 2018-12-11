@@ -327,7 +327,7 @@
             
             CATextLayer *titleLayer = [CATextLayer layer];
             titleLayer.frame = rect;
-            titleLayer.alignmentMode = kCAAlignmentCenter;
+            titleLayer.alignmentMode = kCAAlignmentRight;
             if ([UIDevice currentDevice].systemVersion.floatValue < 10.0 ) {
                 titleLayer.truncationMode = kCATruncationEnd;
             }
